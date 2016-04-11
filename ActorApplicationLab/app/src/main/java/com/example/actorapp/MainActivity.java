@@ -17,12 +17,15 @@ public class MainActivity extends AppCompatActivity {
     ListView listView;
     ActorAdapter actorAdapter;
     List<Actor> actors;
+    List<Actor> data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         actors = new ArrayList<>();
         actors.add(new Actor("Leo", 1, "Some day"));
         actors.add(new Actor("Jamey", 0, "hahaha"));
@@ -30,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
         actors.add(new Actor("Emilia Axen", 10, "1990"));
         listView = (ListView) findViewById(R.id.actors_list_view_main);
         actorAdapter = new ActorAdapter(MainActivity.this, R.layout.activity_actors_list, actors);
+        data = new ArrayList<>();
+        data.add(new Actor("Leo", 1, "Some day"));
+        data.add(new Actor("Jamey", 0, "hahaha"));
+        listView = (ListView) findViewById(R.id.actors_list_view_main);
+        actorAdapter = new ActorAdapter(MainActivity.this, R.layout.activity_actors_list, data);
+
         listView.setAdapter(actorAdapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
