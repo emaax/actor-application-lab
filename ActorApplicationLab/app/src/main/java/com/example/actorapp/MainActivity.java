@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         data = new ArrayList<>();
         data.add(new Actor("Leo", 1, "Some day"));
         data.add(new Actor("Jamey", 0, "hahaha"));
+        data.add(new Actor("BoJackHorseman", 0, "I don't know"));
+        data.add(new Actor("Cate Blanchet", 0, "Rude to ask"));
         listView = (ListView) findViewById(R.id.actors_list_view_main);
         actorAdapter = new ActorAdapter(MainActivity.this, R.layout.activity_actors_list, data);
         listView.setAdapter(actorAdapter);
