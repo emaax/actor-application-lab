@@ -27,17 +27,19 @@ public class MainActivity extends AppCompatActivity {
         data.add(new Actor("Leo", 1, "Some day"));
         data.add(new Actor("Jamey", 0, "hahaha"));
         listView = (ListView) findViewById(R.id.actors_list_view_main);
-        actorAdapter = new ActorAdapter(MainActivity.this, R.layout.activity_actors_custom, data);
+        actorAdapter = new ActorAdapter(MainActivity.this, R.layout.activity_actors_list, data);
         listView.setAdapter(actorAdapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        if(fab != null){
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+            });
+        }
     }
 
 

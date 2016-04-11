@@ -1,6 +1,8 @@
 package com.example.actorapp;
 
+import android.app.Activity;
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -14,13 +16,13 @@ import java.util.List;
  * Created by hollis on 4/11/16.
  */
 public class ActorAdapter extends ArrayAdapter<Actor> {
-    Context context;
+    Activity context;
     List<Actor> data;
     int layoutID;
 
     public ActorAdapter(Context context,int layoutID, List<Actor> data){
         super(context, layoutID, data);
-        this.context = context;
+        this.context = (Activity) context;
         this.layoutID = layoutID;
         this.data = data;
 
@@ -28,11 +30,13 @@ public class ActorAdapter extends ArrayAdapter<Actor> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        LayoutInflater inflater = context.getLayoutInflater();
+        convertView = inflater.inflate(layoutID,parent, false);
         TextView nameText = (TextView)convertView.findViewById(R.id.actor_name_text_view);
-        TextView oscarText = (TextView) convertView.findViewsWithText(R.id.actor_oscars_text_view);
-        TextView dob = (TextView) convertView.findViewById(R.id.actors_DOB_text_view);
+        TextView oscarText = (TextView) convertView.findViewById(R.id.actor_oscars_text_view);
+        TextView dob = (TextView) convertView.findViewById(R.id.actor_DOB_text_view);
         nameText.setText(data.get(position).getName());
-        oscarText.setText(data.get(position).getOscars());
+        oscarText.setText(data.get(position).getOscars() + "");
         dob.setText(data.get(position).getDateOfBirth());
         return convertView;
     }
