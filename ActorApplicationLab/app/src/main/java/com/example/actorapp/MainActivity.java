@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         actorAdapter = new ActorAdapter(MainActivity.this, R.layout.activity_actors_custom, data);
         listView.setAdapter(actorAdapter);
 
-       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
